@@ -1,0 +1,104 @@
+VisualStudio2010 build
+======================
+
+preliminary port of Oink-Elsa by Aaron Gray - aaronngray@gmail.com
+
+prerequisits
+------------
+
+Visual Studio 2010 or Visual Studio Express 2010 (free download) :-
+
+    http://www.microsoft.com/express/Downloads/
+
+GnuWin32 sed, grep, flex 2.5.4, bison 2.1, and M4 1.4.14 :-
+
+    http://gnuwin32.sourceforge.net/
+    http://sourceforge.net/projects/gnuwin32/files/bison/2.1/bison-2.1.exe/download
+	http://sourceforge.net/projects/gnuwin32/files/flex/2.5.4a-1/flex-2.5.4a-1.exe/download
+	http://sourceforge.net/projects/gnuwin32/files/m4/1.4.14/m4-1.4.14-bin.zip/download
+	http://sourceforge.net/projects/gnuwin32/files/grep/2.5.4/grep-2.5.4-setup.exe/download
+	http://sourceforge.net/projects/gnuwin32/files/sed/4.2.1/sed-4.2.1-setup.exe/download
+
+    want to be installed under C:\GnuWin32
+
+Active State Active Perl :-
+
+    http://www.activestate.com/activeperl
+
+VisualStudio Files
+------------------
+
+VisualStudio2010
+  * README - this file
+  * elsa.sln - Elsa build VisualStudio 2010 solution file
+  * elsa.suo - VisualStudio 2010 solution defaults file
+
+VisualStudio2010/smbase
+  * smbase.vcxproj.* - smbase VisualStudio project files
+
+VisualStudio2010/ast
+  * ast.vcxproj.* - AST VisualStudio project files
+
+VisualStudio2010/ast-boot
+  * ast-boot.vcxproj.* - AST bootstrap VisualStudio project files
+
+VisualStudio2010/ast-hand-boot
+  * ast-hand-boot.vcxproj.* - AST hand coded bootstrap VisualStudio project files
+
+VisualStudio2010/ast-lib
+  * ast-lib.vcxproj.* - AST library VisualStudio project files
+
+VisualStudio2010/elkhound
+  * elkhound.vcxproj.* - Elkhound VisualStudio project files
+
+VisualStudio2010/elsa-lib
+  * elsa.vcxproj.* - Elsa Library Visual Studio project files
+
+VisualStudio2010/elsa
+  * elsa.vcxproj.* - Elsa VisualStudio project files
+
+
+source code changes
+-------------------
+
+smbase
+  * run-flex.pl - added a '-win' flag for GnuWin32 flex 2.5.4 support.
+  * FlexLexer.h - added copy of FlexLexer.h from a later flex.
+  * ckheap.h - support for VisualStudio's _WIN32 as well as __WIN32__ 
+               added checkHeap() and numMallocCalls() stub #defines
+  * cycles.h - hack for milliseconds, getCycles_ll() returns zero for now.
+  * nonport.cpp - support for VisualStudio's _WIN32 as well as __WIN32__
+  * ofstreamts.cc - to #include <io.h> instead of <unistd.h>
+  * str.cpp - to #include <io.h> instead of <unistd.h>
+
+elkhound
+  * glr.cc - added 'std::' to 'ostream'.
+  * glrconfig.h - added prebuilt version.
+
+elsa
+  * configure.pl - added -DXML flag to CCFLAGS
+  * main.cc - added XML build flag
+  * baselexer.cc - added 'std::' to 'ostream'.
+  * cc_flags.h - replaced 'bool operator>=' with a function 'superset()' for 
+                 CVFlags and DeclFlags as they were causing ambiguities on 
+                 Visual Studio. This is a bug see below (1)
+  * cc_tcheck.cc - replaced 'bool operator>=' with a function 'superset()'
+  * mtype.cc - replaced 'bool operator>=' with a function 'superset()'
+
+(1) http://connect.microsoft.com/VisualStudio/feedback/details/529700/enum-operator-overloading-broken
+
+
+Debug Build
+-----------
+
+Several of the productions in cc.gr, and gnu.gr do not return values there for 
+there are errors in cc.gr.gen.cc, these cause the debug build to have errors.
+I have given cc.gr.gen.cc a /w14716 flag to give warnings instead like the 
+release build.
+
+    cc.gr:684
+	cc.gr:686
+	cc.gr2547
+	gnu.gr:215
+
+

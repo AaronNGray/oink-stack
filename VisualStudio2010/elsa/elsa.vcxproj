@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AC4A50C7-3AD7-4562-A7EF-7FFF3AE1E444}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>elsa</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\VisualStudio2010\elsa-lib;..\..\elsa;..\..\elkhound;..\..\ast;..\..\smbase</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);elsa.lib;elkhound.lib;ast.lib;smbase.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\VisualStudio2010\elsa-lib;..\..\elsa;..\..\elkhound;..\..\ast;..\..\smbase</AdditionalIncludeDirectories>
+      <AdditionalOptions>/wd4996 /wd4800 /wd4522 /wd4355 /wd4101 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);elsa.lib;elkhound.lib;ast.lib;smbase.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Release</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\elsa\astvisit.h" />
+    <ClInclude Include="..\..\elsa\ast_build.h" />
+    <ClInclude Include="..\..\elsa\baselexer.h" />
+    <ClInclude Include="..\..\elsa\bitstrmap.h" />
+    <ClInclude Include="..\..\elsa\bpprint.h" />
+    <ClInclude Include="..\..\elsa\builtin-declarations.h" />
+    <ClInclude Include="..\..\elsa\builtin-t.h" />
+    <ClInclude Include="..\..\elsa\builtinops.h" />
+    <ClInclude Include="..\..\elsa\cc2c.h" />
+    <ClInclude Include="..\..\elsa\ccparse.h" />
+    <ClInclude Include="..\..\elsa\cc_ast.h" />
+    <ClInclude Include="..\..\elsa\cc_ast_aux.h" />
+    <ClInclude Include="..\..\elsa\cc_elaborate.h" />
+    <ClInclude Include="..\..\elsa\cc_env.h" />
+    <ClInclude Include="..\..\elsa\cc_err.h" />
+    <ClInclude Include="..\..\elsa\cc_flags.h" />
+    <ClInclude Include="..\..\elsa\cc_lang.h" />
+    <ClInclude Include="..\..\elsa\cc_print.h" />
+    <ClInclude Include="..\..\elsa\cc_scope.h" />
+    <ClInclude Include="..\..\elsa\cc_type.h" />
+    <ClInclude Include="..\..\elsa\cfg.h" />
+    <ClInclude Include="..\..\elsa\const_eval.h" />
+    <ClInclude Include="..\..\elsa\cppundolog.h" />
+    <ClInclude Include="..\..\elsa\exprloc.h" />
+    <ClInclude Include="..\..\elsa\generic_amb.h" />
+    <ClInclude Include="..\..\elsa\generic_aux.h" />
+    <ClInclude Include="..\..\elsa\ia64mangle.h" />
+    <ClInclude Include="..\..\elsa\id_obj_dict.h" />
+    <ClInclude Include="..\..\elsa\implconv.h" />
+    <ClInclude Include="..\..\elsa\implint.h" />
+    <ClInclude Include="..\..\elsa\integrity.h" />
+    <ClInclude Include="..\..\elsa\iptparse.h" />
+    <ClInclude Include="..\..\elsa\iptree.h" />
+    <ClInclude Include="..\..\elsa\kandr.h" />
+    <ClInclude Include="..\..\elsa\lexer.h" />
+    <ClInclude Include="..\..\elsa\lookupset.h" />
+    <ClInclude Include="..\..\elsa\mangle.h" />
+    <ClInclude Include="..\..\elsa\mflags.h" />
+    <ClInclude Include="..\..\elsa\mtype.h" />
+    <ClInclude Include="..\..\elsa\overload.h" />
+    <ClInclude Include="..\..\elsa\packedword.h" />
+    <ClInclude Include="..\..\elsa\parssppt.h" />
+    <ClInclude Include="..\..\elsa\serialno.h" />
+    <ClInclude Include="..\..\elsa\smin.h" />
+    <ClInclude Include="..\..\elsa\sprint.h" />
+    <ClInclude Include="..\..\elsa\stdconv.h" />
+    <ClInclude Include="..\..\elsa\strmap.h" />
+    <ClInclude Include="..\..\elsa\template.h" />
+    <ClInclude Include="..\..\elsa\typelistiter.h" />
+    <ClInclude Include="..\..\elsa\variable.h" />
+    <ClInclude Include="..\..\elsa\xml_ast_reader.h" />
+    <ClInclude Include="..\..\elsa\xml_do_read.h" />
+    <ClInclude Include="..\..\elsa\xml_enum.h" />
+    <ClInclude Include="..\..\elsa\xml_file_reader.h" />
+    <ClInclude Include="..\..\elsa\xml_file_writer.h" />
+    <ClInclude Include="..\..\elsa\xml_lexer.h" />
+    <ClInclude Include="..\..\elsa\xml_lex_extra.h" />
+    <ClInclude Include="..\..\elsa\xml_reader.h" />
+    <ClInclude Include="..\..\elsa\xml_type_id.h" />
+    <ClInclude Include="..\..\elsa\xml_type_reader.h" />
+    <ClInclude Include="..\..\elsa\xml_type_writer.h" />
+    <ClInclude Include="..\..\elsa\xml_writer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\elsa\main.cc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

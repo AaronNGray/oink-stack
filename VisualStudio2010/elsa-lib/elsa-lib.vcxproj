@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{82312EB8-72EB-4AF9-8752-E5386F492F64}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>elsalib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>elsa</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>elsa</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\VisualStudio2010\elsa-lib;..\..\elsa;..\..\elkhound;..\..\ast;..\..\smbase</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\VisualStudio2010\elsa-lib;..\..\elsa;..\..\elkhound;..\..\ast;..\..\smbase</AdditionalIncludeDirectories>
+      <AdditionalOptions>/wd4996 /wd4800 /wd4522 /wd4355 /wd4101 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\elsa\cc.ast">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Release\ast -occ.ast.gen ..\..\elsa\cc.ast ..\..\elsa\cc_tcheck.ast ..\..\elsa\cc_print.ast ..\..\elsa\cfg.ast ..\..\elsa\cc_elaborate.ast ..\..\elsa\gnu.ast ..\..\elsa\kandr.ast ..\..\elsa\bpprint.ast ..\..\elsa\cc2c.ast</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cc.ast.gen.cc cc.ast.gen.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\elsa\cc_tcheck.ast ..\..\elsa\cc_print.ast ..\..\elsa\cfg.ast ..\..\elsa\cc_elaborate.ast ..\..\elsa\bpprint.ast ..\..\elsa\cc2c.ast</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\elsa\cc_tcheck.ast ..\..\elsa\cc_print.ast ..\..\elsa\cfg.ast ..\..\elsa\cc_elaborate.ast ..\..\elsa\bpprint.ast ..\..\elsa\cc2c.ast</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Debug\ast -occ.ast.gen ..\..\elsa\cc.ast ..\..\elsa\cc_tcheck.ast ..\..\elsa\cc_print.ast ..\..\elsa\cfg.ast ..\..\elsa\cc_elaborate.ast ..\..\elsa\gnu.ast ..\..\elsa\kandr.ast ..\..\elsa\bpprint.ast ..\..\elsa\cc2c.ast</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cc.ast.gen.cc cc.ast.gen.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\elsa\cc.gr">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy ..\..\elsa\cc_tokens.tok cc_tokens.tok
+perl ..\..\elsa\make-token-files cc_tokens.tok ..\..\elsa\gnu_ext.tok
+
+del cc.gr.gen.cc
+del cc.gr.gen.h
+..\Release\elkhound -v -tr lrtable -o cc.gr.gen ..\..\elsa\cc.gr ..\..\elsa\gnu.gr ..\..\elsa\kandr.gr</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cc.gr.gen.cc cc.gr.gen.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\elsa\gnu.gr ..\..\elsa\kandr.gr cc_tokens.tok</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\elsa\gnu.gr ..\..\elsa\kandr.gr ..\..\VisualStudio2010\VisualStudio2010\elsa\cc_tokens.ids</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cc.gr.gen.cc cc.gr.gen.h</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy ..\..\elsa\cc_tokens.tok cc_tokens.tok
+perl ..\..\elsa\make-token-files cc_tokens.tok ..\..\elsa\gnu_ext.tok
+
+del cc.gr.gen.cc
+del cc.gr.gen.h
+..\Debug\elkhound -v -tr lrtable -o cc.gr.gen ..\..\elsa\cc.gr ..\..\elsa\gnu.gr ..\..\elsa\kandr.gr</Command>
+    </CustomBuild>
+    <CustomBuild Include="..\..\elsa\cc.lex">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">perl ..\..\elsa\merge-lexer-exts.pl ..\..\elsa\cc.lex ..\..\elsa\gnu.lex &gt;lexer.lex</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">lexer.lex</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\elsa\gnu.lex</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">perl ..\..\elsa\merge-lexer-exts.pl ..\..\elsa\cc.lex ..\..\elsa\gnu.lex &gt;lexer.lex</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">lexer.lex</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\elsa\gnu.lex</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="lexer.lex">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">perl ..\..\smbase\run-flex.pl -win -nobackup -copies -olexer.yy.cc lexer.lex</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">lexer.yy.cc</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">perl ..\..\smbase\run-flex.pl -win -nobackup -copies -olexer.yy.cc lexer.lex</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">lexer.yy.cc</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\elsa\cc_tokens.tok">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy ..\..\elsa\cc_tokens.tok cc_tokens.tok
+perl ..\..\elsa\make-token-files cc_tokens.tok ..\..\elsa\gnu_ext.tok</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy ..\..\elsa\cc_tokens.tok cc_tokens.tok
+perl ..\..\elsa\make-token-files cc_tokens.tok ..\..\elsa\gnu_ext.tok</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Open Source\oink-stack\VisualStudio2010\VisualStudio2010\elsa\cc_tokens.ids</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cc_tokens.ids</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\elsa\gnu_ext.tok</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\elsa\gnu_ext.tok</AdditionalInputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\elsa\astvisit.cc" />
+    <ClCompile Include="..\..\elsa\ast_build.cc" />
+    <ClCompile Include="..\..\elsa\baselexer.cc" />
+    <ClCompile Include="..\..\elsa\bpprint.cc" />
+    <ClCompile Include="..\..\elsa\builtinops.cc" />
+    <ClCompile Include="..\..\elsa\cc2c.cc" />
+    <ClCompile Include="..\..\elsa\ccparse.cc" />
+    <ClCompile Include="..\..\elsa\cc_ast_aux.cc" />
+    <ClCompile Include="..\..\elsa\cc_elaborate.cc" />
+    <ClCompile Include="..\..\elsa\cc_env.cc" />
+    <ClCompile Include="..\..\elsa\cc_err.cc" />
+    <ClCompile Include="..\..\elsa\cc_flags.cc" />
+    <ClCompile Include="..\..\elsa\cc_lang.cc" />
+    <ClCompile Include="..\..\elsa\cc_print.cc" />
+    <ClCompile Include="..\..\elsa\cc_scope.cc" />
+    <ClCompile Include="..\..\elsa\cc_tcheck.cc" />
+    <ClCompile Include="..\..\elsa\cc_type.cc" />
+    <ClCompile Include="..\..\elsa\cfg.cc" />
+    <ClCompile Include="..\..\elsa\const_eval.cc" />
+    <ClCompile Include="..\..\elsa\cppundolog.cc" />
+    <ClCompile Include="..\..\elsa\gnu.cc" />
+    <ClCompile Include="..\..\elsa\ia64mangle.cc" />
+    <ClCompile Include="..\..\elsa\id_obj_dict.cc" />
+    <ClCompile Include="..\..\elsa\implconv.cc" />
+    <ClCompile Include="..\..\elsa\implint.cc" />
+    <ClCompile Include="..\..\elsa\integrity.cc" />
+    <ClCompile Include="..\..\elsa\iptparse.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\iptree.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\kandr.cc" />
+    <ClCompile Include="..\..\elsa\lexer.cc" />
+    <ClCompile Include="..\..\elsa\lookupset.cc" />
+    <ClCompile Include="..\..\elsa\main.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\mangle.cc" />
+    <ClCompile Include="..\..\elsa\mtype.cc" />
+    <ClCompile Include="..\..\elsa\notopt.cc" />
+    <ClCompile Include="..\..\elsa\overload.cc" />
+    <ClCompile Include="..\..\elsa\packedword_test.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\parssppt.cc" />
+    <ClCompile Include="..\..\elsa\semgrep.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\serialno.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\smin.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\sprint.cc" />
+    <ClCompile Include="..\..\elsa\stdconv.cc" />
+    <ClCompile Include="..\..\elsa\template.cc" />
+    <ClCompile Include="..\..\elsa\tlexer.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\typelistiter.cc" />
+    <ClCompile Include="..\..\elsa\variable.cc" />
+    <ClCompile Include="..\..\elsa\xml_ast_reader.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\xml_do_read.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\xml_file_reader.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\xml_file_writer.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\xml_lexer.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\xml_reader.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\xml_type_reader.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\xml_type_writer.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elsa\xml_writer.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="cc.ast.gen.cc" />
+    <ClCompile Include="cc.gr.gen.cc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/w14716 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="cc_tokens.cc" />
+    <ClCompile Include="lexer.yy.cc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\VisualStudio2010\elsa-lib;..\..\elsa;..\..\elkhound;..\..\ast;..\..\smbase</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

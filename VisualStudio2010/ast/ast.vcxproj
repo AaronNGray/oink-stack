@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6E22120F-CBF0-4B87-B4EA-EAADEF68FC27}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ast</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\ast;..\..\smbase</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);ast.lib;smbase.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Debug</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\ast;..\..\smbase</AdditionalIncludeDirectories>
+      <AdditionalOptions>/wd4522 /wd4800 /wd4996 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);ast.lib;smbase.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ast\agrampar.codes.h" />
+    <ClInclude Include="..\..\ast\agrampar.h" />
+    <ClInclude Include="..\..\ast\agrampar.tab.h" />
+    <ClInclude Include="..\..\ast\ast.ast.h" />
+    <ClInclude Include="..\..\ast\ast.hand.h" />
+    <ClInclude Include="..\..\ast\asthelp.h" />
+    <ClInclude Include="..\..\ast\ccsstr.h" />
+    <ClInclude Include="..\..\ast\embedded.h" />
+    <ClInclude Include="..\..\ast\fakelist.h" />
+    <ClInclude Include="..\..\ast\fileloc.h" />
+    <ClInclude Include="..\..\ast\gramlex.h" />
+    <ClInclude Include="..\..\ast\locstr.h" />
+    <ClInclude Include="..\..\ast\reporterr.h" />
+    <ClInclude Include="..\..\ast\xmlhelp.h" />
+    <ClInclude Include="agrampar.codes.h" />
+    <ClInclude Include="agrampar.tab.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ast\astgen.cc" />
+    <ClCompile Include="agramlex.yy.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\ast\agramlex.lex">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\smbase\run-flex.pl -win -oagramlex.yy.cc ..\..\ast\agramlex.lex</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\smbase\run-flex.pl -win -oagramlex.yy.cc ..\..\ast\agramlex.lex</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">agramlex.yy.cc</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">agramlex.yy.cc</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\ast\agrampar.y">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bison -d -v ..\..\ast\agrampar.y
+copy /Y agrampar.tab.c tmp
+sed -e "s/typedef union {/typedef union YYSTYPE {/" -e "s/__attribute__ ((__unused__))//" &lt;tmp &gt;agrampar.tab.cc
+copy /Y agrampar.tab.h tmp
+sed -e "s/typedef union {/typedef union YYSTYPE {/" &lt;tmp &gt;agrampar.tab.h
+del tmp
+grep "# *define" agrampar.tab.h &gt;agrampar.codes.h
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bison -d -v ..\..\ast\agrampar.y
+copy /Y agrampar.tab.c tmp
+sed -e "s/typedef union {/typedef union YYSTYPE {/" -e "s/__attribute__ ((__unused__))//" &lt;tmp &gt;agrampar.tab.cc
+copy /Y agrampar.tab.h tmp
+sed -e "s/typedef union {/typedef union YYSTYPE {/" &lt;tmp &gt;agrampar.tab.h
+del tmp
+grep "# *define" agrampar.tab.h &gt;agrampar.codes.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">agrampar.tab.cc agrampar.codes.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">agrampar.tab.cc agrampar.codes.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\ast\ast.ast">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Debug\ast-boot.exe ..\..\ast\ast.ast</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ast.ast.cc ast.ast.h</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Release\ast-boot.exe ..\..\ast\ast.ast</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ast.ast.cc ast.ast.h</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

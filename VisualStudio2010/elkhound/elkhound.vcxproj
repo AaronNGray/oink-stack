@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{945ABB9D-66F5-448A-968B-74930056957B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>elkhound</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\elkhound;..\..\ast;..\..\smbase;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);ast.lib;smbase.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Debug</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\elkhound;..\..\ast;..\..\smbase;</AdditionalIncludeDirectories>
+      <AdditionalOptions>/wd4996 /wd4522 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);ast.lib;smbase.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Release</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\elkhound\asockind.cc" />
+    <ClCompile Include="..\..\elkhound\cyctimer.cc" />
+    <ClCompile Include="..\..\elkhound\emitcode.cc" />
+    <ClCompile Include="..\..\elkhound\genml.cc" />
+    <ClCompile Include="..\..\elkhound\glr.cc" />
+    <ClCompile Include="..\..\elkhound\glrmain.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\gramanl.cc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/D "NDEBUG" /D "GRAMANL_MAIN" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"..\..\VisualStudio2010\elkhound";..\..\ast;..\..\smbase;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"..\..\VisualStudio2010\elkhound";..\..\ast;..\..\smbase;</AdditionalIncludeDirectories>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D "NDEBUG" /D "GRAMANL_MAIN" %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\gramast.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\gramexpl.cc" />
+    <ClCompile Include="..\..\elkhound\grammar.cc" />
+    <ClCompile Include="..\..\elkhound\grampar.cc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"..\..\VisualStudio2010\elkhound";..\..\ast;..\..\smbase;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"..\..\VisualStudio2010\elkhound";..\..\ast;..\..\smbase;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\mlsstr.cc" />
+    <ClCompile Include="..\..\elkhound\parsetables.cc" />
+    <ClCompile Include="..\..\elkhound\parsstub.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\ptreeact.cc" />
+    <ClCompile Include="..\..\elkhound\ptreenode.cc" />
+    <ClCompile Include="..\..\elkhound\ssxmain.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\trcptr.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\trivbison.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\trivlex.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\trivmain.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\elkhound\useract.cc" />
+    <ClCompile Include="gramast.ast.gen.cc" />
+    <ClCompile Include="gramlex.yy.cc" />
+    <ClCompile Include="grampar.tab.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\elkhound\asockind.h" />
+    <ClInclude Include="..\..\elkhound\cyctimer.h" />
+    <ClInclude Include="..\..\elkhound\emitcode.h" />
+    <ClInclude Include="..\..\elkhound\flatutil.h" />
+    <ClInclude Include="..\..\elkhound\genml.h" />
+    <ClInclude Include="..\..\elkhound\glr.h" />
+    <ClInclude Include="..\..\elkhound\glrconfig.h" />
+    <ClInclude Include="..\..\elkhound\gramanl.h" />
+    <ClInclude Include="..\..\elkhound\gramast.h" />
+    <ClInclude Include="..\..\elkhound\grammar.h" />
+    <ClInclude Include="..\..\elkhound\grampar.h" />
+    <ClInclude Include="..\..\elkhound\lexerint.h" />
+    <ClInclude Include="..\..\elkhound\mlsstr.h" />
+    <ClInclude Include="..\..\elkhound\ownerspec.h" />
+    <ClInclude Include="..\..\elkhound\parsetables.h" />
+    <ClInclude Include="..\..\elkhound\ptreeact.h" />
+    <ClInclude Include="..\..\elkhound\ptreenode.h" />
+    <ClInclude Include="..\..\elkhound\rcptr.h" />
+    <ClInclude Include="..\..\elkhound\ssxnode.h" />
+    <ClInclude Include="..\..\elkhound\trivbison.h" />
+    <ClInclude Include="..\..\elkhound\trivlex.h" />
+    <ClInclude Include="..\..\elkhound\useract.h" />
+    <ClInclude Include="..\..\elkhound\util.h" />
+    <ClInclude Include="gramast.ast.gen.h" />
+    <ClInclude Include="gramast.ast.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\elkhound\gramast.ast">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Release\ast -o gramast.ast.gen ..\..\elkhound\gramast.ast</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">gramast.ast.gen.cc gramast.ast.gen.h</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Debug\ast -o gramast.ast.gen ..\..\elkhound\gramast.ast</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">gramast.ast.gen.cc gramast.ast.gen.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\elkhound\gramlex.lex">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\smbase\run-flex.pl -win -ogramlex.yy.cc ..\..\elkhound\gramlex.lex</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\smbase\run-flex.pl -win -ogramlex.yy.cc ..\..\elkhound\gramlex.lex</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">gramlex.yy.cc</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">gramlex.yy.cc</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\elkhound\grampar.y">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bison -d -v ..\..\elkhound\grampar.y
+copy /Y grampar.tab.c tmp
+sed -e "s/typedef union {/typedef union YYSTYPE {/" -e "s/__attribute__ ((__unused__))//" &lt;tmp &gt;grampar.tab.cc
+copy /Y grampar.tab.h tmp
+sed -e "s/typedef union {/typedef union YYSTYPE {/" &lt;tmp &gt;grampar.tab.h
+del tmp
+grep "# *define" grampar.tab.h &gt;grampar.codes.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">grampar.tab.cc grampar.codes.h</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bison -d -v ..\..\elkhound\grampar.y
+copy /Y grampar.tab.c tmp
+sed -e "s/typedef union {/typedef union YYSTYPE {/" -e "s/__attribute__ ((__unused__))//" &lt;tmp &gt;grampar.tab.cc
+copy /Y grampar.tab.h tmp
+sed -e "s/typedef union {/typedef union YYSTYPE {/" &lt;tmp &gt;grampar.tab.h
+del tmp
+grep "# *define" grampar.tab.h &gt;grampar.codes.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">grampar.tab.cc grampar.codes.h</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

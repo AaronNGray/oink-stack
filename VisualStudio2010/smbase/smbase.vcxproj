@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3C4042BA-A0C8-44C0-824B-9ACDA3626505}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>smbase</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/wd4996 /wd4522 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\smbase\index.html" />
+    <None Include="..\..\smbase\trace.html" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\smbase\array.h" />
+    <ClInclude Include="..\..\smbase\arraymap.h" />
+    <ClInclude Include="..\..\smbase\arrayqueue.h" />
+    <ClInclude Include="..\..\smbase\astlist.h" />
+    <ClInclude Include="..\..\smbase\autofile.h" />
+    <ClInclude Include="..\..\smbase\bflatten.h" />
+    <ClInclude Include="..\..\smbase\bit2d.h" />
+    <ClInclude Include="..\..\smbase\bitarray.h" />
+    <ClInclude Include="..\..\smbase\bitwise_array.h" />
+    <ClInclude Include="..\..\smbase\boxprint.h" />
+    <ClInclude Include="..\..\smbase\breaker.h" />
+    <ClInclude Include="..\..\smbase\ckheap.h" />
+    <ClInclude Include="..\..\smbase\crc.h" />
+    <ClInclude Include="..\..\smbase\cycles.h" />
+    <ClInclude Include="..\..\smbase\d2vector.h" />
+    <ClInclude Include="..\..\smbase\datablok.h" />
+    <ClInclude Include="..\..\smbase\exc.h" />
+    <ClInclude Include="..\..\smbase\flatten.h" />
+    <ClInclude Include="..\..\smbase\flatutil.h" />
+    <ClInclude Include="..\..\smbase\flexlexer.h" />
+    <ClInclude Include="..\..\smbase\gprintf.h" />
+    <ClInclude Include="..\..\smbase\growbuf.h" />
+    <ClInclude Include="..\..\smbase\hashline.h" />
+    <ClInclude Include="..\..\smbase\hashtbl.h" />
+    <ClInclude Include="..\..\smbase\macros.h" />
+    <ClInclude Include="..\..\smbase\missing.h" />
+    <ClInclude Include="..\..\smbase\mypopen.h" />
+    <ClInclude Include="..\..\smbase\mysig.h" />
+    <ClInclude Include="..\..\smbase\nonport.h" />
+    <ClInclude Include="..\..\smbase\objlist.h" />
+    <ClInclude Include="..\..\smbase\objmap.h" />
+    <ClInclude Include="..\..\smbase\objpool.h" />
+    <ClInclude Include="..\..\smbase\objstack.h" />
+    <ClInclude Include="..\..\smbase\ofstreamts.h" />
+    <ClInclude Include="..\..\smbase\ohashtbl.h" />
+    <ClInclude Include="..\..\smbase\okhasharr.h" />
+    <ClInclude Include="..\..\smbase\okhashtbl.h" />
+    <ClInclude Include="..\..\smbase\oobjmap.h" />
+    <ClInclude Include="..\..\smbase\owner.h" />
+    <ClInclude Include="..\..\smbase\pair.h" />
+    <ClInclude Include="..\..\smbase\point.h" />
+    <ClInclude Include="..\..\smbase\pprint.h" />
+    <ClInclude Include="..\..\smbase\ptrintmap.h" />
+    <ClInclude Include="..\..\smbase\ptrmap.h" />
+    <ClInclude Include="..\..\smbase\smregexp.h" />
+    <ClInclude Include="..\..\smbase\sm_flexlexer.h" />
+    <ClInclude Include="..\..\smbase\sm_strstream.h" />
+    <ClInclude Include="..\..\smbase\sobjlist.h" />
+    <ClInclude Include="..\..\smbase\sobjset.h" />
+    <ClInclude Include="..\..\smbase\sobjstack.h" />
+    <ClInclude Include="..\..\smbase\srcloc.h" />
+    <ClInclude Include="..\..\smbase\str.h" />
+    <ClInclude Include="..\..\smbase\strdict.h" />
+    <ClInclude Include="..\..\smbase\strhash.h" />
+    <ClInclude Include="..\..\smbase\stringset.h" />
+    <ClInclude Include="..\..\smbase\strintdict.h" />
+    <ClInclude Include="..\..\smbase\strobjdict.h" />
+    <ClInclude Include="..\..\smbase\strsobjdict.h" />
+    <ClInclude Include="..\..\smbase\strtable.h" />
+    <ClInclude Include="..\..\smbase\strtokp.h" />
+    <ClInclude Include="..\..\smbase\strtokpc.h" />
+    <ClInclude Include="..\..\smbase\strutil.h" />
+    <ClInclude Include="..\..\smbase\svdict.h" />
+    <ClInclude Include="..\..\smbase\syserr.h" />
+    <ClInclude Include="..\..\smbase\taillist.h" />
+    <ClInclude Include="..\..\smbase\test.h" />
+    <ClInclude Include="..\..\smbase\thashtbl.h" />
+    <ClInclude Include="..\..\smbase\trace.h" />
+    <ClInclude Include="..\..\smbase\trdelete.h" />
+    <ClInclude Include="..\..\smbase\typ.h" />
+    <ClInclude Include="..\..\smbase\unixutil.h" />
+    <ClInclude Include="..\..\smbase\vdtllist.h" />
+    <ClInclude Include="..\..\smbase\voidlist.h" />
+    <ClInclude Include="..\..\smbase\vptrmap.h" />
+    <ClInclude Include="..\..\smbase\warn.h" />
+    <ClInclude Include="..\..\smbase\xassert.h" />
+    <ClInclude Include="..\..\smbase\xobjlist.h" />
+    <ClInclude Include="..\..\smbase\xstrobjdict.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\smbase\autofile.cc" />
+    <ClCompile Include="..\..\smbase\bflatten.cc" />
+    <ClCompile Include="..\..\smbase\bit2d.cc" />
+    <ClCompile Include="..\..\smbase\bitarray.cc" />
+    <ClCompile Include="..\..\smbase\boxprint.cc" />
+    <ClCompile Include="..\..\smbase\breaker.cpp" />
+    <ClCompile Include="..\..\smbase\crc.cpp" />
+    <ClCompile Include="..\..\smbase\datablok.cpp" />
+    <ClCompile Include="..\..\smbase\exc.cpp" />
+    <ClCompile Include="..\..\smbase\flatten.cc" />
+    <ClCompile Include="..\..\smbase\gprintf.c" />
+    <ClCompile Include="..\..\smbase\growbuf.cc" />
+    <ClCompile Include="..\..\smbase\hashline.cc" />
+    <ClCompile Include="..\..\smbase\hashtbl.cc" />
+    <ClCompile Include="..\..\smbase\missing.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\mysig.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\nonport.cpp" />
+    <ClCompile Include="..\..\smbase\ofstreamts.cc" />
+    <ClCompile Include="..\..\smbase\point.cc" />
+    <ClCompile Include="..\..\smbase\pprint.cc" />
+    <ClCompile Include="..\..\smbase\smregexp.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\srcloc.cc" />
+    <ClCompile Include="..\..\smbase\srcloc.test.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\srcloc.test2.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\str.cpp" />
+    <ClCompile Include="..\..\smbase\strdict.cc" />
+    <ClCompile Include="..\..\smbase\strhash.cc" />
+    <ClCompile Include="..\..\smbase\stringset.cc" />
+    <ClCompile Include="..\..\smbase\strtable.cc" />
+    <ClCompile Include="..\..\smbase\strtokp.cpp" />
+    <ClCompile Include="..\..\smbase\strutil.cc" />
+    <ClCompile Include="..\..\smbase\svdict.cc" />
+    <ClCompile Include="..\..\smbase\syserr.cpp" />
+    <ClCompile Include="..\..\smbase\taillist_test.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\tarrayqueue.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\testarray.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\testcout.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\testmalloc.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\tobjlist.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\tobjpool.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\trace.cc" />
+    <ClCompile Include="..\..\smbase\trdelete.cc" />
+    <ClCompile Include="..\..\smbase\tsobjlist.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\smbase\vdtllist.cc" />
+    <ClCompile Include="..\..\smbase\voidlist.cc" />
+    <ClCompile Include="..\..\smbase\vptrmap.cc" />
+    <ClCompile Include="..\..\smbase\warn.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
