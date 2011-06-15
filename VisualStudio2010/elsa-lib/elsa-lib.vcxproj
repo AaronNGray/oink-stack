@@ -90,20 +90,20 @@
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy ..\..\elsa\cc_tokens.tok cc_tokens.tok
 perl ..\..\elsa\make-token-files cc_tokens.tok ..\..\elsa\gnu_ext.tok
-
 del cc.gr.gen.cc
 del cc.gr.gen.h
-..\Release\elkhound -v -tr lrtable -o cc.gr.gen ..\..\elsa\cc.gr ..\..\elsa\gnu.gr ..\..\elsa\kandr.gr</Command>
+..\Release\elkhound -v -tr lrtable -o cc.gr.gen ..\..\elsa\cc.gr ..\..\elsa\gnu.gr ..\..\elsa\kandr.gr
+</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cc.gr.gen.cc cc.gr.gen.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\elsa\gnu.gr ..\..\elsa\kandr.gr cc_tokens.tok</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\elsa\gnu.gr ..\..\elsa\kandr.gr ..\..\VisualStudio2010\VisualStudio2010\elsa\cc_tokens.ids</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cc.gr.gen.cc cc.gr.gen.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy ..\..\elsa\cc_tokens.tok cc_tokens.tok
 perl ..\..\elsa\make-token-files cc_tokens.tok ..\..\elsa\gnu_ext.tok
-
 del cc.gr.gen.cc
 del cc.gr.gen.h
-..\Debug\elkhound -v -tr lrtable -o cc.gr.gen ..\..\elsa\cc.gr ..\..\elsa\gnu.gr ..\..\elsa\kandr.gr</Command>
+..\Debug\elkhound -v -tr lrtable -o cc.gr.gen ..\..\elsa\cc.gr ..\..\elsa\gnu.gr ..\..\elsa\kandr.gr
+</Command>
     </CustomBuild>
     <CustomBuild Include="..\..\elsa\cc.lex">
       <FileType>Document</FileType>

@@ -137,32 +137,20 @@
     <CustomBuild Include="..\..\ast\agrampar.y">
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bison -d -v ..\..\ast\agrampar.y
-
 copy /Y agrampar.tab.c tmp
-
 sed -e "s/typedef union {/typedef union YYSTYPE {/" -e "s/__attribute__ ((__unused__))//" &lt;tmp &gt;agrampar.tab.cc
-
 copy /Y agrampar.tab.h tmp
 sed -e "s/typedef union {/typedef union YYSTYPE {/" &lt;tmp &gt;agrampar.tab.h
-
 del tmp
-
 grep "# *define" agrampar.tab.h &gt;agrampar.codes.h
-
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">agrampar.tab.cc agrampar.codes.h</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bison -d -v ..\..\ast\agrampar.y
-
 copy /Y agrampar.tab.c tmp
-
 sed -e "s/typedef union {/typedef union YYSTYPE {/" -e "s/__attribute__ ((__unused__))//" &lt;tmp &gt;agrampar.tab.cc
-
 copy /Y agrampar.tab.h tmp
-
 sed -e "s/typedef union {/typedef union YYSTYPE {/" &lt;tmp &gt;agrampar.tab.h
-
 del tmp
-
 grep "# *define" agrampar.tab.h &gt;agrampar.codes.h
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">agrampar.tab.cc agrampar.codes.h</Outputs>
