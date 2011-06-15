@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Generated Files">
-      <UniqueIdentifier>{eec45c82-f79e-45c8-a76d-417c9cd257d6}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ast\agrampar.codes.h">
@@ -71,19 +68,5 @@
     <ClCompile Include="..\..\ast\astgen.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="agramlex.yy.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="..\..\ast\agramlex.lex">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\..\ast\agrampar.y">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="..\..\ast\ast.ast">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
   </ItemGroup>
 </Project>

@@ -13,18 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{99a2e433-593e-4cb2-823e-83fd84f8eb77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ast\agrampar.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ast\agrampar.tab.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ast\ast.ast.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\ast\ast.hand.cc">
@@ -61,6 +58,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\ast\xmlhelp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="agramlex.yy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="agrampar.tab.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ast.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,5 +113,16 @@
     <ClInclude Include="..\..\ast\reporterr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\ast\agramlex.lex">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\ast\agrampar.y">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\ast\ast.ast">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

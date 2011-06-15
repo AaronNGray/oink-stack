@@ -100,44 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ast\astgen.cc" />
-    <ClCompile Include="agramlex.yy.cc" />
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="..\..\ast\agramlex.lex">
-      <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\smbase\run-flex.pl -win -oagramlex.yy.cc ..\..\ast\agramlex.lex</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\smbase\run-flex.pl -win -oagramlex.yy.cc ..\..\ast\agramlex.lex</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">agramlex.yy.cc</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">agramlex.yy.cc</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="..\..\ast\agrampar.y">
-      <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bison -d -v ..\..\ast\agrampar.y
-copy /Y agrampar.tab.c tmp
-sed -e "s/typedef union {/typedef union YYSTYPE {/" -e "s/__attribute__ ((__unused__))//" &lt;tmp &gt;agrampar.tab.cc
-copy /Y agrampar.tab.h tmp
-sed -e "s/typedef union {/typedef union YYSTYPE {/" &lt;tmp &gt;agrampar.tab.h
-del tmp
-grep "# *define" agrampar.tab.h &gt;agrampar.codes.h
-</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bison -d -v ..\..\ast\agrampar.y
-copy /Y agrampar.tab.c tmp
-sed -e "s/typedef union {/typedef union YYSTYPE {/" -e "s/__attribute__ ((__unused__))//" &lt;tmp &gt;agrampar.tab.cc
-copy /Y agrampar.tab.h tmp
-sed -e "s/typedef union {/typedef union YYSTYPE {/" &lt;tmp &gt;agrampar.tab.h
-del tmp
-grep "# *define" agrampar.tab.h &gt;agrampar.codes.h
-</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">agrampar.tab.cc agrampar.codes.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">agrampar.tab.cc agrampar.codes.h</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="..\..\ast\ast.ast">
-      <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Debug\ast-boot.exe ..\..\ast\ast.ast</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ast.ast.cc ast.ast.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Release\ast-boot.exe ..\..\ast\ast.ast</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ast.ast.cc ast.ast.h</Outputs>
-    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
