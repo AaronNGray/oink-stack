@@ -108,9 +108,4 @@
       <Filter>Generation Files</Filter>
     </CustomBuild>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="gramast.ast.gen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

@@ -167,9 +167,6 @@ grep "# *define" grampar.tab.h &gt;grampar.codes.h
     <ClCompile Include="gramlex.yy.cc" />
     <ClCompile Include="grampar.tab.cc" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="gramast.ast.gen.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

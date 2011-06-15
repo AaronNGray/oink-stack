@@ -122,8 +122,11 @@ grep "# *define" agrampar.tab.h &gt;agrampar.codes.h
     <CustomBuild Include="..\..\ast\ast.ast">
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy ..\..\ast\ast.ast ast.ast
+
 ..\Debug\ast-boot.exe ast.ast</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Release\ast-boot.exe ..\..\ast\ast.ast</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy ..\..\ast\ast.ast ast.ast
+
+..\Release\ast-boot.exe ast.ast</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ast.ast.cc ast.ast.h</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ast.ast.cc ast.ast.h</Outputs>
     </CustomBuild>
