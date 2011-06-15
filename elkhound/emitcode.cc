@@ -4,6 +4,7 @@
 #include "emitcode.h"      // this module
 #include "syserr.h"        // xsyserror
 #include "srcloc.h"        // SourceLoc
+#include "strutil.h"       // replace
 #include "trace.h"         // tracingSys
 #include <string.h>        // memcpy
 
@@ -94,7 +95,7 @@ string lineDirective(SourceLoc loc)
   int line, col;
   sourceLocManager->decodeLineCol(loc, fname, line, col);
 
-  return stringc << hashLine() << line << " \"" << fname << "\"\n";
+  return stringc << hashLine() << line << " \"" << replace(fname, "\\", "\\\\") << "\"\n";
 }
 
 stringBuilder &restoreLine(stringBuilder &sb)
