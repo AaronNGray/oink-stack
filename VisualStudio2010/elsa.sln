@@ -52,6 +52,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ast-boot", "ast-boot\ast-bo
 		{3C4042BA-A0C8-44C0-824B-9ACDA3626505} = {3C4042BA-A0C8-44C0-824B-9ACDA3626505}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "elsa-regression-test", "elsa-regression-test\elsa-regression-test.vcxproj", "{FC789A96-E5D5-43CE-A3B4-5BF52ACCD4F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -94,6 +96,10 @@ Global
 		{B03DE765-BBA3-4699-995F-21C1634D1C0D}.Debug|Win32.Build.0 = Debug|Win32
 		{B03DE765-BBA3-4699-995F-21C1634D1C0D}.Release|Win32.ActiveCfg = Release|Win32
 		{B03DE765-BBA3-4699-995F-21C1634D1C0D}.Release|Win32.Build.0 = Release|Win32
+		{FC789A96-E5D5-43CE-A3B4-5BF52ACCD4F2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FC789A96-E5D5-43CE-A3B4-5BF52ACCD4F2}.Debug|Win32.Build.0 = Debug|Win32
+		{FC789A96-E5D5-43CE-A3B4-5BF52ACCD4F2}.Release|Win32.ActiveCfg = Release|Win32
+		{FC789A96-E5D5-43CE-A3B4-5BF52ACCD4F2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
